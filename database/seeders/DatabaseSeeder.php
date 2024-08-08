@@ -18,7 +18,14 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            UserAddressSeeder::class,
             ACLSeeder::class,
+            CategorySeeder::class,
+            ReservationSeeder::class,
+            ContactSeeder::class,
+            AddonGroupSeeder::class,
+            ItemSeeder::class,
+            OrderSeeder::class,
         ]);
     }
 }
