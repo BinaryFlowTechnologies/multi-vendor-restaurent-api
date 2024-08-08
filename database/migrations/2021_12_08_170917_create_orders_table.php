@@ -19,6 +19,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
 
+            $table->foreignId('restaurant_id')->constrained('restaurants');
+
             // Total
             $table->integer('order_type')->default(Order::TYPE_COLLECTION);
             $table->integer('subtotal');

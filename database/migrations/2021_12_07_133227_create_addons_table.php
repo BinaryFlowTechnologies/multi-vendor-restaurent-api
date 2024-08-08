@@ -20,6 +20,10 @@ class CreateAddonsTable extends Migration
                 ->constrained('addon_groups')
             ;
 
+            $table->foreignId('restaurant_id')
+                ->constrained('restaurants')
+            ;
+
             $table->string('name');
             $table->integer('price')->default(0);
             $table->integer('type')->nullable()->default(1);

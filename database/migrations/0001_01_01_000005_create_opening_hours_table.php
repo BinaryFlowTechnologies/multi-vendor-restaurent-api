@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('opening_hours', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('day_id')->constrained('opening_days');
+            $table->foreignId('restaurant_id')->constrained('restaurants');
+            $table->time('pickup_from')->nullable();
+            $table->time('pickup_to')->nullable();
+            $table->time('delivery_from')->nullable();
+            $table->time('delivery_to')->nullable();
+            $table->boolean('delivery_enabled')->nullable()->default(true);
+            $table->boolean('pickup_enabled')->nullable()->default(true);
             $table->timestamps();
         });
     }
