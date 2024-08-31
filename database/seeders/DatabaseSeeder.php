@@ -2,17 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use Illuminate\Database\Seeder;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
      */
-    public function run() : void
+    public function run (): void
     {
         $this->call([
             PermissionSeeder::class,
@@ -20,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             UserAddressSeeder::class,
             ACLSeeder::class,
+            RestaurantSeeder::class,
             CategorySeeder::class,
             ReservationSeeder::class,
             ContactSeeder::class,

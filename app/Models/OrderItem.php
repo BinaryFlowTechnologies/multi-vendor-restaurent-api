@@ -10,31 +10,31 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class OrderItem extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $guarded = ['id'];
-    protected $hidden = ['pivot'];
+  protected $guarded = ['id'];
+  protected $hidden = ['pivot'];
 
-    public function order(): BelongsTo
-    {
-        return $this->belongsTo(Order::class);
-    }
+  public function order (): BelongsTo
+  {
+	return $this->belongsTo(Order::class);
+  }
 
-    public function item(): BelongsTo
-    {
-        return $this->belongsTo(Item::class);
-    }
+  public function item (): BelongsTo
+  {
+	return $this->belongsTo(Item::class);
+  }
 
-    public function addons(): HasMany
-    {
-        return $this->hasMany(OrderItemAddon::class, 'item_id');
-    }
+  public function addons (): HasMany
+  {
+	return $this->hasMany(OrderItemAddon::class, 'item_id');
+  }
 
-    public function price() :Attribute
-    {
-        return new Attribute(
-            fn($value) => $value / 100,
-            fn ($value) => $value * 100
-        );
-    }
+  public function price (): Attribute
+  {
+	return new Attribute(
+		fn($value) => $value / 100,
+		fn($value) => $value * 100
+	);
+  }
 }

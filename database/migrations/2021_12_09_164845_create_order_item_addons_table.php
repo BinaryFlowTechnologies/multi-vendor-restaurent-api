@@ -6,31 +6,31 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateOrderItemAddonsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up() : void
-    {
-        Schema::create('order_item_addons', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('order_id')->constrained('orders');
-            $table->foreignId('item_id')->constrained('order_items');
-            $table->foreignId('addon_id')->constrained('addons');
-            $table->string('name');
-            $table->integer('price');
-            $table->timestamps();
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up (): void
+  {
+	Schema::create('order_item_addons', function(Blueprint $table) {
+	  $table->id();
+	  $table->foreignId('order_id')->constrained('orders');
+	  $table->foreignId('item_id')->constrained('order_items');
+	  $table->foreignId('addon_id')->constrained('addons');
+	  $table->string('name');
+	  $table->integer('price');
+	  $table->timestamps();
+	});
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('order_item_addons');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down ()
+  {
+	Schema::dropIfExists('order_item_addons');
+  }
 }

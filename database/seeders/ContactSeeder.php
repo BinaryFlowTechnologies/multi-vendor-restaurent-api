@@ -7,13 +7,13 @@ use Illuminate\Database\Seeder;
 
 class ContactSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run() : void
-    {
-        Contact::factory()->count(50)->create();
-    }
+  /**
+   * Run the database seeds.
+   *
+   * @return void
+   */
+  public function run (): void
+  {
+	Contact::factory()->count(50)->create();
+  }
 }

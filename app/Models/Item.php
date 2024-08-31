@@ -10,25 +10,26 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Item extends Model
 {
-    use HasFactory;
-    protected $guarded = ['id'];
+  use HasFactory;
 
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
-    }
+  protected $guarded = ['id'];
 
-    public function addonGroups(): BelongsToMany
-    {
-        return $this->belongsToMany(AddonGroup::class)->withTimestamps();
-    }
+  public function category (): BelongsTo
+  {
+	return $this->belongsTo(Category::class);
+  }
+
+  public function addonGroups (): BelongsToMany
+  {
+	return $this->belongsToMany(AddonGroup::class)->withTimestamps();
+  }
 
 
-    public function price() :Attribute
-    {
-        return new Attribute(
-            get: fn($value) => $value / 100,
-            set: fn ($value) => $value * 100
-        );
-    }
+  public function price (): Attribute
+  {
+	return new Attribute(
+		get: fn($value) => $value / 100,
+		set: fn($value) => $value * 100
+	);
+  }
 }

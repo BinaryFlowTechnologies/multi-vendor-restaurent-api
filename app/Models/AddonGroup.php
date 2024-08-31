@@ -10,25 +10,26 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AddonGroup extends Model
 {
-    use HasFactory;
-    protected $guarded = ['id'];
+  use HasFactory;
 
-    public function items(): BelongsToMany
-    {
-        return $this->belongsToMany(Item::class)->withTimestamps();
-    }
+  protected $guarded = ['id'];
 
-    public function addons(): HasMany
-    {
-        return $this->hasMany(Addon::class);
-    }
+  public function items (): BelongsToMany
+  {
+	return $this->belongsToMany(Item::class)->withTimestamps();
+  }
+
+  public function addons (): HasMany
+  {
+	return $this->hasMany(Addon::class);
+  }
 
 
-    public function price():Attribute
-    {
-        return new Attribute(
-            fn($value) => $value / 100,
-            fn($value) => $value * 100
-        );
-    }
+  public function price (): Attribute
+  {
+	return new Attribute(
+		fn($value) => $value / 100,
+		fn($value) => $value * 100
+	);
+  }
 }
