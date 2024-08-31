@@ -19,7 +19,7 @@ class OrderFactory extends Factory
     {
 
         $user = $this->faker->randomElement(User::all());
-        $userAddress = UserAddress::where('user_id', $user->id)->first();
+        $userAddress = UserAddress::query()->where('user_id', $user->id)->first();
 
         $subtotal = $this->faker->numberBetween(100, 500);
 
