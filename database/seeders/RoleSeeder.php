@@ -14,6 +14,7 @@ class RoleSeeder extends Seeder
   public function run (): void
   {
 	$permissions = Permission::query()->pluck('id', 'id')->all();
+    $vendorAdminPermissions = Permission::query()->pluck('id', 'id')->all();
 
 	$superAdminRole = Role::create([
 		'name'        => 'Super Admin',
@@ -25,9 +26,13 @@ class RoleSeeder extends Seeder
 		'description' => 'Main Administrator',
 	]);
 
+    $vendorAdminRole = Role::create([
+        'name'        => 'Vendor Admin',
+        'description' => 'Vendor Administrator',
+    ]);
+
 	$superAdminRole->syncPermissions($permissions);
 	$adminRole->syncPermissions($permissions);
-
-
+    $vendorAdminRole->syncPermissions($vendorAdminPermissions);
   }
 }

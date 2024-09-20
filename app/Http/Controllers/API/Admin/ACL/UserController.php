@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends BaseController
 {
-  /**
+    /**
    * Display a listing of the resource.
    */
   public function index (Request $request, UserRepository $userRepository): \Illuminate\Http\JsonResponse
